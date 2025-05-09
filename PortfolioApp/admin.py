@@ -6,7 +6,7 @@ from PortfolioApp.models import Project, Rating
 admin.site.register(Rating)
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('project_name', 'average_rating', 'ranking')  # 'average_rating'은 아래 메서드 이름
+    list_display = ('project_name', 'average_rating', 'ranking')
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -22,7 +22,6 @@ class ProjectAdmin(admin.ModelAdmin):
     def average_rating(self, obj):
         avg = obj.avg_rating
         return round(avg, 2) if avg else "점수 없음"
-    # average_rating.admin_order_field = 'rating__avg'  # 정렬 가능하게
     average_rating.short_description = '평균 평점'
 
     def ranking(self, obj):
