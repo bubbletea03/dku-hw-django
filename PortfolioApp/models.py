@@ -10,4 +10,4 @@ class Project(models.Model):
 
 class Rating(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    rating = models.IntegerChoices('1', '2', '3', '4', '5')
+    rating = models.IntegerField()

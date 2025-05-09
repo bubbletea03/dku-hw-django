@@ -1,8 +1,10 @@
+<h1>포트폴리오 프로젝트 목록</h1>
+
 {% if project_list %}
     <ul>
         {% for project in project_list %}
             <li>
-                <a href="/portfolio/{{ project.id }}">{{ project.project_name }}</a>
+                <a href="{% url 'PortfolioApp:detail' project.id %}">{{ project.project_name }}</a>
                 <div>{{ project.pub_date }}</div>
             </li>
         {% endfor %}

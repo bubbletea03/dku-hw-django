@@ -1,0 +1,16 @@
+<h1>{{ project.project_name }}</h1>
+<div style="margin: 20px">프로젝트 상세 내용:</div>
+<div style="margin-bottom: 100px">{{ project.project_detail }}</div>
+
+<div>평가 점수 매기기:</div>
+<br>
+<form action="{% url 'PortfolioApp:rate' project.id %}" method="POST">
+    {% csrf_token %}
+    {% for i in ratings %}
+        <input type="radio" name="rating" id="rating{{ i }}" value="{{ i }}">
+        <label for="rating{{ i }}">{{ i }} 점</label>
+        <br>
+    {% endfor %}
+<br>
+<input type="submit" value="rate">
+</form>
