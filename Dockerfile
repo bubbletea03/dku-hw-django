@@ -13,7 +13,9 @@ ENV PYTHONDONTWRITEBYTECODE=1
 #Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED=1
 
-# Upgrade pipd
+ENV DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Upgrade pip
 RUN pip install --upgrade pip
 
 # Copy the Django project  and install dependencies
